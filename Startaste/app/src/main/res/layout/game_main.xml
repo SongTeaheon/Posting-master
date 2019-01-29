@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/toMain"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/buttonstyle"
+        android:text="메인화면"
+        app:layout_constraintBottom_toTopOf="@+id/prograssBar"
+        app:layout_constraintEnd_toStartOf="@+id/toDic"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/toDic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/buttonstyle"
+        android:text="도감"
+        app:layout_constraintBottom_toTopOf="@+id/prograssBar"
+        app:layout_constraintEnd_toStartOf="@+id/toCook" />
+
+    <Button
+        android:id="@+id/toCook"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/buttonstyle"
+        android:text="조합"
+        app:layout_constraintBottom_toTopOf="@+id/prograssBar"
+        app:layout_constraintEnd_toStartOf="@+id/toStore" />
+
+    <Button
+        android:id="@+id/toStore"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/buttonstyle"
+        android:text="상점"
+        app:layout_constraintBottom_toTopOf="@+id/prograssBar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/prograssBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="9dp"
+        android:max="100"
+        android:progress="60"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/userLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="9dp"
+        android:text="Lv 54"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/userMana"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical|left"
+        android:text="20180"
+        app:layout_constraintStart_toEndOf="@+id/imageMana"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageMana"
+        android:layout_width="15dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/mana" />
+
+    <Button
+        android:id="@+id/buttonPlus"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="21dp"
+        android:padding="0dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/userMana"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

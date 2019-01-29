@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="hello">
+        <item>서울특별시 동대문구 휘경 1동</item>
+        <item>서울특별시 동대문구 휘경 2동</item>
+        <item>서울특별시 동대문구 휘경 3동</item>
+        <item>서울특별시 동대문구 휘경 4동</item>
+        <item>서울특별시 동대문구 휘경 5동</item>
+    </string-array>
+
+
+</resources>

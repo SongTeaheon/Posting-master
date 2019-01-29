@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ruach.test_mk3">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <meta-data
+        android:name="com.kakao.sdk.AppKey"
+        android:value="faf5db4a2eed0e41db89b2fc6b87bed9"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/plenet"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginLayout"
+            android:label="Test_mk3"
+            android:theme="@style/AppTheme.AppBarOverlay">
+        </activity>
+        <activity
+            android:name=".DicLayout"
+            android:label="Test_mk3">
+        </activity>
+        <activity
+            android:name=".FollowLayout"
+            android:label="Test_mk3"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".LabLayout"
+            android:label="Test_mk3"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".SettingLayout"
+            android:label="Test_mk3"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".StatusLayout"
+            android:label="Test_mk3"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+        android:name=".StoreLayout"
+        android:label="Test_mk3"
+        android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".GameLayout"
+            android:label="Test_mk3"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".TastelistLayout"
+            android:label="Test_mk3"
+            android:windowSoftInputMode="stateHidden"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+    </application>
+
+</manifest>

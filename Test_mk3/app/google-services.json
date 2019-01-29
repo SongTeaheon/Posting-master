@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "111867674225",
+    "firebase_url": "https://startaste-2019.firebaseio.com",
+    "project_id": "startaste-2019",
+    "storage_bucket": "startaste-2019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111867674225:android:83480a0f2cd8ad39",
+        "android_client_info": {
+          "package_name": "ruach.test_mk3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111867674225-ujis69s8infc6m2gf6krppmapj2ejjt8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ruach.test_mk3",
+            "certificate_hash": "9918ad0192df0453cb0d032f5bbddfa70edd81a7"
+          }
+        },
+        {
+          "client_id": "111867674225-nfopuf5vo41n9ue8oq6cg4aohn5ruqe3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ruach.test_mk3",
+            "certificate_hash": "149896f806106f32814ffcab659f20500600a71f"
+          }
+        },
+        {
+          "client_id": "111867674225-0gc3mg5coc7032qc96pd8vabfiq4n2rd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaWlzYGPbcFalGayFKxFsycKAhUKn-s4A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111867674225-0gc3mg5coc7032qc96pd8vabfiq4n2rd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

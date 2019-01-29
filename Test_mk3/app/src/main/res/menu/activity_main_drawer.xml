@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dic_layout"
+            android:title="생물 도감" />
+        <item
+            android:id="@+id/nav_lab_layout"
+            android:title="신의 주방" />
+        <item
+            android:id="@+id/nav_store_layout"
+            android:title="마나 상점" />
+        <item
+            android:id="@+id/nav_follow_layout"
+            android:title="팔로워" />
+        <item
+            android:id="@+id/nav_setting_layout"
+            android:title="설 정" />
+    </group>
+
+</menu>

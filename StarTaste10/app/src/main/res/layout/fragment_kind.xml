@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FEF5E7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_style"
+            android:text="전체"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_style"
+            android:text="치킨"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/button_style"
+            android:text="중국집"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_style"
+            android:text="피자"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:background="@drawable/button_style"
+            android:text="양식"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:background="@drawable/button_style"
+            android:text="분식"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_style"
+            android:text="한식"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:background="@drawable/button_style"
+            android:text="카페/디저트"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:background="@drawable/button_style"
+            android:text="족발/보쌈"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/button_style"
+            android:text="일식"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:background="@drawable/button_style"
+            android:text="돈까스"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+    </GridLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/prograssBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="150dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="35dp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <ProgressBar
+        android:id="@+id/prograssBar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="150dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="35dp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ProgressBar
+        android:id="@+id/prograssBar3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="150dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="35dp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ProgressBar
+        android:id="@+id/prograssBar4"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="150dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="35dp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ProgressBar
+        android:id="@+id/prograssBar5"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="150dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="23dp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintStart_toEndOf="@+id/prograssBar1"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <ProgressBar
+        android:id="@+id/prograssBar6"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="150dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="23dp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintStart_toEndOf="@+id/prograssBar2"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <ProgressBar
+        android:id="@+id/prograssBar7"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="150dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="23dp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintStart_toEndOf="@+id/prograssBar3"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <ProgressBar
+        android:id="@+id/prograssBar8"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="150dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="23dp"
+        android:max="100"
+        android:progress="0"
+        app:layout_constraintStart_toEndOf="@+id/prograssBar4"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="19dp"
+        android:text="단맛"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/point" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="24dp"
+        android:text="짠맛"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar1" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="24dp"
+        android:text="신맛"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="24dp"
+        android:text="쓴맛"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="19dp"
+        android:text="감칠맛"
+        app:layout_constraintStart_toEndOf="@+id/prograssBar1"
+        app:layout_constraintTop_toBottomOf="@+id/point" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="24dp"
+        android:text="매운맛"
+        app:layout_constraintStart_toEndOf="@+id/prograssBar2"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar5" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="24dp"
+        android:text="지방맛"
+        app:layout_constraintStart_toEndOf="@+id/prograssBar3"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar6" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="24dp"
+        android:text="탄수화물맛"
+        app:layout_constraintStart_toEndOf="@+id/prograssBar4"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar7" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar1" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar2" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar3" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar4" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar5" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar6" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar7" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar8" />
+
+    <TextView
+        android:id="@+id/point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="16dp"
+        android:text="남은포인트"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userPoint"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="16dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/point"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="80dp"
+        android:padding="0dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar1" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="80dp"
+        android:padding="0dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="80dp"
+        android:padding="0dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar3" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="80dp"
+        android:padding="0dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar4" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="138dp"
+        android:padding="0dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar5" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="1dp"
+        android:padding="0dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar6" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="138dp"
+        android:padding="0dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar7" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="138dp"
+        android:padding="0dp"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar8" />
+
+    <Button
+        android:id="@+id/buttonReturn"
+        android:layout_width="72dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        android:padding="0dp"
+        android:text="되돌리기"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar8" />
+
+    <Button
+        android:id="@+id/buttonDecide"
+        android:layout_width="72dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="53dp"
+        android:padding="0dp"
+        android:text="결정하기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/buttonReturn"
+        app:layout_constraintTop_toBottomOf="@+id/prograssBar8" />
+
+</android.support.constraint.ConstraintLayout>

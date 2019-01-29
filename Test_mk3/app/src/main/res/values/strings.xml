@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">별의별맛</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">로 그 인 을</string>
+    <string name="nav_header_subtitle">해 주 세 요</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_login">계정연동</string>
+</resources>

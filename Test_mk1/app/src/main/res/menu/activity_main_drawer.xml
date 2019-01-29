@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_store"
+            android:title="마나 상점" />
+        <item
+            android:id="@+id/nav_lab"
+            android:title="실험실" />
+        <item
+            android:id="@+id/nav_dictionary"
+            android:title="도 감" />
+        <item
+            android:id="@+id/nav_manage"
+            android:title="설 정" />
+    </group>
+
+    <item android:title="S N S">
+        <menu>
+            <item
+                android:id="@+id/nav_list"
+                android:title="맛집 목록" />
+            <item
+                android:id="@+id/nav_follow"
+                android:title="팔로우" />
+        </menu>
+    </item>
+
+</menu>

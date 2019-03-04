@@ -21,6 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="317dp"
             android:divider="#999999"
-            android:dividerHeight="1dp"></ListView>
+            android:dividerHeight="1dp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

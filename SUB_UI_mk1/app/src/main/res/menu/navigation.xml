@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_Home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="폴로메인홈" />
+
+    <item
+        android:id="@+id/navigation_Searching"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="폴로들검색" />
+
+    <item
+        android:id="@+id/navigation_New"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="새폴로작성" />
+
+    <item
+        android:id="@+id/navigation_Subscribing"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="구독중폴로" />
+
+    <item
+        android:id="@+id/navigation_Bookmark"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="저장한폴로" />
+
+</menu>

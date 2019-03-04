@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="380dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="#E0E0E0"
+            android:hint="장소, 태그 검색"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="380dp"
+            android:layout_height="578dp"
+            android:layout_gravity="center"
+            android:divider="#999999"
+            android:dividerHeight="0.5dp" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/buttoHome"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/buttonstyle"
+                android:text="홈"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonNew"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/buttonNew"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/buttonstyle"
+                android:text="새글"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonSubscribe" />
+
+            <Button
+                android:id="@+id/buttonSubscribe"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="18dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/buttonstyle"
+                android:text="구독"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonBookmark" />
+
+            <Button
+                android:id="@+id/buttonBookmark"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/buttonstyle"
+                android:text="저장"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

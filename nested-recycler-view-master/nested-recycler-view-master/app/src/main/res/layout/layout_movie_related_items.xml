@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:background="@color/background_dark_medium"
+    android:paddingBottom="@dimen/padding_size_medium"
+    android:paddingLeft="@dimen/padding_size_default"
+    android:paddingRight="@dimen/padding_size_default"
+    android:paddingTop="@dimen/padding_size_default">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/related_movies_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/padding_size_medium"
+            android:text="@string/related_movies"
+            android:textSize="@dimen/default_text_size"
+            android:textStyle="bold"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/related_movies_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/related_items_container_height"/>
+
+    </LinearLayout>
+
+    <com.github.rahatarmanahmed.cpv.CircularProgressView
+        android:id="@+id/progress_view"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:cpv_indeterminate="true"/>
+
+</RelativeLayout>

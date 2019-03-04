@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name" translatable="false">SUB_UI_mk1</string>
+    <string name="title_home" translatable="false">메인 화면</string>
+    <string name="title_search" translatable="false">검색 화면</string>
+    <string name="title_new" translatable="false">새 폴로 작성</string>
+    <string name="title_subscribe" translatable="false">구독 중인 폴로</string>
+    <string name="title_bookmark" translatable="false">저장한 폴로</string>
+</resources>

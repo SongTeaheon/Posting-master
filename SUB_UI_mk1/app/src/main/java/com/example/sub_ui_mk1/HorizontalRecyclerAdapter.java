@@ -28,21 +28,13 @@ public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
     }
 
     private class CellViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        private TextView textView;
-        private TextView placeView;
         private ImageView imageView;
         private TextView mainView;
-        private TextView loveView;
-        private TextView dateView;
 
         public CellViewHolder(View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.text);
-            placeView = itemView.findViewById(R.id.textplace);
             imageView = itemView.findViewById(R.id.imagefood);
             mainView = itemView.findViewById(R.id.textmain);
-            loveView = itemView.findViewById(R.id.textlove);
-            dateView = itemView.findViewById(R.id.textdate);
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }
@@ -81,12 +73,8 @@ public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
         switch (viewHolder.getItemViewType()) {
             default: {
                 CellViewHolder cellViewHolder = (CellViewHolder) viewHolder;
-                cellViewHolder.placeView.setText(""+mList.get(position).place);
-                cellViewHolder.textView.setText(""+mList.get(position).text);
                 cellViewHolder.imageView.setImageResource(mList.get(position).imagefood);
                 cellViewHolder.mainView.setText(""+mList.get(position).main);
-                cellViewHolder.loveView.setText(""+mList.get(position).love);
-                cellViewHolder.dateView.setText(""+mList.get(position).date);
                 break;
             }
         }

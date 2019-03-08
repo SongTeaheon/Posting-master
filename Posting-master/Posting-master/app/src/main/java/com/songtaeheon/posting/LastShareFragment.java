@@ -170,23 +170,23 @@ public class LastShareFragment extends Fragment {
         });
 
     }
-    private void setStarText(RatingBar b, TextView v){
+    private void setStarText(RatingBar b, TextView v){ //변경
         v.setText(String.valueOf(v));
         switch ((int) b.getRating()) {
             case 1:
-                v.setText("Very bad");
+                v.setText("최악이에요!");
                 break;
             case 2:
-                v.setText("Need some improvement");
+                v.setText("별로에요...");
                 break;
             case 3:
-                v.setText("Good");
+                v.setText("괜찮았어요!");
                 break;
             case 4:
-                v.setText("Great");
+                v.setText("좋았어요!!");
                 break;
             case 5:
-                v.setText("Awesome. I love it");
+                v.setText("정말 최고입니다!!");
                 break;
             default:
                 v.setText("");

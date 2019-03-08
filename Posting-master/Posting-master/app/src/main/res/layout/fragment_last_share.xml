@@ -44,7 +44,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical|center_horizontal"
                         android:layout_weight="2"
-                        android:text="맛     "
+                        android:text="맛"
                         android:textSize="18sp" />
 
                     <RatingBar
@@ -52,8 +52,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0"
+                        android:isIndicator="false"
+                        android:max="5"
                         android:numStars="5"
-                        android:stepSize="1" />
+                        android:rating="0"
+                        android:stepSize="0.5" />
 
                     <TextView
                         android:id="@+id/starText1"
@@ -159,13 +162,34 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/editTextTitle"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/linLayout"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:hint="폴라로이드의 제목을 입력해주세요"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTextTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextTitle"
+                android:ems="10"
+                android:hint="태그를 입력해주세요"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextTag"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:ems="10"
+                android:hint="음식점에 대한 자세한 내용을 입력해주세요!"
+                android:inputType="textMultiLine" />
         </RelativeLayout>
     </ScrollView>
 

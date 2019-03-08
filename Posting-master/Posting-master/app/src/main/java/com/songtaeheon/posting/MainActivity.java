@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public static UserInfo currentUser;
 
     Button buttonToShare;
+    Button buttonToSub;
 
     EditText editText_email;
     EditText editText_password;
@@ -73,6 +74,16 @@ public class MainActivity extends AppCompatActivity {
                 moveToShareActivity();
             }
         });
+
+        buttonToSub = findViewById(R.id.button3);
+        buttonToSub.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "ButtonToSub is clicked : move to SubActivity");
+                moveToSubActivity();
+            }
+        });
+
 
     }
 
@@ -122,6 +133,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void moveToShareActivity(){
         Intent intent = new Intent(this, ShareActivity.class);
+        startActivity(intent);
+    }
+
+    public void moveToSubActivity(){
+        Intent intent = new Intent(this, SubActivity.class);
         startActivity(intent);
     }
 

@@ -7,38 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cb71843-22d5-43e2-b22d-9e5be556e858" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Posting-master/Posting-master/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../Posting-master/Posting-master/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Posting-master/Posting-master/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Posting-master/Posting-master/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Posting-master/Posting-master/app/src/main/java/com/songtaeheon/posting/LastShareFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Posting-master/Posting-master/app/src/main/java/com/songtaeheon/posting/LastShareFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Posting-master/Posting-master/app/src/main/res/layout/fragment_last_share.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Posting-master/Posting-master/app/src/main/res/layout/fragment_last_share.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Posting-master/Posting-master/app/src/main/res/layout/fragment_store_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Posting-master/Posting-master/app/src/main/res/layout/fragment_store_search.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SUB_UI_mk1/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../SUB_UI_mk1/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/java/com/example/sub_ui_mk1/HorizontalRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/java/com/example/sub_ui_mk1/HorizontalRecyclerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/layout/detail_list_item_type_title.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/layout/detail_list_item_type_title.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/layout/fragment_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/layout/fragment_search.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/mipmap-hdpi/dalbang.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/mipmap-hdpi/dalbang.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/mipmap-hdpi/musso.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/mipmap-hdpi/musso.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/mipmap-hdpi/pizzaschool.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/mipmap-hdpi/pizzaschool.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/mipmap-hdpi/sakedong.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../SUB_UI_mk1/app/src/main/res/mipmap-hdpi/sakedong.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Startaste/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Startaste/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_android_sdk_4_40_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_applinks_4_40_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_common_4_40_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_core_4_40_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_login_4_40_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_marketing_4_40_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_messenger_4_40_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_places_4_40_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_android_facebook_share_4_40_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Posting-master/Posting-master/app/src/main/java/com/songtaeheon/posting/DataModel/PostingInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Posting-master/Posting-master/app/src/main/java/com/songtaeheon/posting/DataModel/PostingInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/howlstagram-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/howlstagram-master.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +32,7 @@
     <session id="3134792">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -2363,6 +2334,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.3295302" />
       <window_info id="Structure" side_tool="true" />

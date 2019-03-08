@@ -3,6 +3,7 @@ package com.songtaeheon.posting;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
@@ -28,6 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.songtaeheon.posting.DataModel.NaverStoreInfo;
 import com.songtaeheon.posting.DataModel.PostingInfo;
 
 import java.io.File;
@@ -40,7 +42,7 @@ import static com.songtaeheon.posting.MainActivity.currentUser;
 
 public class LastShareFragment extends Fragment {
 
-    private static String TAG = "TAGLastShareFragment";
+    private final String TAG = "TAGLastShareFragment";
     RatingBar mRatingBar1;
     RatingBar mRatingBar2;
     RatingBar mRatingBar3;
@@ -54,15 +56,29 @@ public class LastShareFragment extends Fragment {
     RelativeLayout relLay;
     List<Float> detail_aver_star;
 
+
+    NaverStoreInfo naverStoreInfo;
+
     FirebaseStorage storage;
     FirebaseFirestore db;
 
-
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate!");
+        //Store Search Fragment에서 받은 bundle데이터(네이터 api 검색 결과 선택 항목)을 받는다.
+        if (getArguments() != null) {
+            naverStoreInfo = getArguments().getParcelable("StoreData");
+            Log.d(TAG, "naverStoreInfo : " + naverStoreInfo.title);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_last_share, container, false);
+        Log.d(TAG, "onCreateView!");
+
         text_description = view.findViewById(R.id.editText);
         mRatingBar1 = view.findViewById(R.id.ratingBar1);
         mRatingBar2 = view.findViewById(R.id.ratingBar2);
@@ -135,7 +151,7 @@ public class LastShareFragment extends Fragment {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 setStarText(mRatingBar1, mStarText1);
-                detail_aver_star.add(mRatingBar1.getRating());
+
             }
         });
 
@@ -144,7 +160,6 @@ public class LastShareFragment extends Fragment {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 setStarText(mRatingBar2, mStarText2);
-                detail_aver_star.add(mRatingBar2.getRating());
 
             }
         });
@@ -154,7 +169,6 @@ public class LastShareFragment extends Fragment {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 setStarText(mRatingBar3, mStarText3);
-                detail_aver_star.add(mRatingBar3.getRating());
 
             }
         });
@@ -164,7 +178,6 @@ public class LastShareFragment extends Fragment {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 setStarText(mRatingBar4, mStarText4);
-                detail_aver_star.add(mRatingBar4.getRating());
 
             }
         });
@@ -194,19 +207,19 @@ public class LastShareFragment extends Fragment {
     }
 
 
+    //사진 upload 후, 사진 업로드가 완료되면 업로드된 url을 가져온 후, db에 다른 정보들과 함께 세팅한다.
     private void postingOnFirebaseDatabase() {
         String path = GalleryFragment.selectedImgURL;
         Log.d(TAG, "uploading Photo to firebase storage. path : " + path);
 
-
-        String downloadUriStr = null;
+        //사진 업로드
         StorageReference storageRef = storage.getReferenceFromUrl("gs://posting-67b8f.appspot.com");
         Uri file = Uri.fromFile(new File(path));
         final StorageReference photoRef = storageRef.child("images/"+file.getLastPathSegment());
         UploadTask uploadTask = photoRef.putFile(file);
 
 
-        //get download Url
+        //get upload Url
         Task<Uri> urlTask = uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
@@ -228,21 +241,33 @@ public class LastShareFragment extends Fragment {
                 if (task.isSuccessful()) {
                     Uri downloadUri = task.getResult();
                     String downloadUriStr = downloadUri.toString();
-                    Log.d(TAG, "Getting download url is completed. download url : " + downloadUriStr);
+                    Log.d(TAG, "Getting upload url is completed. download url : " + downloadUriStr);
+
+                    //전달해야하는 데이터 세팅 및 데이터 전달
                     setAndSendPosting(downloadUriStr);
+
                 } else {
                     // Handle failures
-                    Log.w(TAG, "Getting download url is failed.");
+                    Log.w(TAG, "Getting upload url is failed.");
                 }
             }
         });
     }
     private void setAndSendPosting(String imagePathInStorage) {
+        //set the data!!
         PostingInfo postingInfo = new PostingInfo();
         postingInfo.writerId = currentUser.eMail;
         postingInfo.postingTime = Timestamp.now();
         postingInfo.description = text_description.getText().toString();
+        detail_aver_star.add(mRatingBar1.getRating());//맛
+        detail_aver_star.add(mRatingBar2.getRating());//가성비
+        detail_aver_star.add(mRatingBar3.getRating());//서비스
+        detail_aver_star.add(mRatingBar4.getRating());//분위기
         postingInfo.detail_aver_star = detail_aver_star;
+
+        postingInfo.storeName = naverStoreInfo.title;
+        postingInfo.address = naverStoreInfo.address;
+
 
         float sum =0 ;
         for(int i=0 ; i<detail_aver_star.size(); i++ ) {

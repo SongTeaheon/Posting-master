@@ -66,8 +66,6 @@ public class GridImageAdapterForGallery extends BaseAdapter {
         imageLoader.init(ImageLoaderConfiguration.createDefault(mContext));
         imageLoader.displayImage("file:/" + imgURLs.get(position), gridImageView);
 
-
-
         return convertView;
     }
 

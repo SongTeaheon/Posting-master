@@ -20,6 +20,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.songtaeheon.posting.DataModel.NaverStoreInfo;
 import com.songtaeheon.posting.DataModel.StoreInfo;
+import com.songtaeheon.posting.Utils.RecyclerItemClickListener;
 import com.songtaeheon.posting.Utils.RecyclerviewAdapterForShare;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ import static com.songtaeheon.posting.SearchService.API_URL;
 
 
 public class StoreSearchFragment extends Fragment {
-    private static final String TAG = "TAGStoreResearchFrag";
+    private final String TAG = "TAGStoreResearchFrag";
     private final String naverApiId = "B6m_wV3mDimRZaxT8fZe";
     private final String naverApiSecret = "rb2Or79uka";
 
@@ -55,9 +56,6 @@ public class StoreSearchFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_store_search, container, false);
         mRecyclerView = view.findViewById(R.id.recyclerview);
-
-        storeInfoArrayList = new ArrayList<>();
-
 
 
 
@@ -80,7 +78,7 @@ public class StoreSearchFragment extends Fragment {
         nextScreen.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onclick : navigating to the final share screen");
+                Log.d(TAG, "onclick : navigating to the final share screen : 필요없어질 수도!");
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.relLayout1, new LastShareFragment());
                 ft.addToBackStack(null);
@@ -88,7 +86,7 @@ public class StoreSearchFragment extends Fragment {
             }
         });
 
-        //search 버튼
+        //search 버튼(EditText에 있는 단어를 받아서 검색)
         searchWordText = view.findViewById(R.id.searchWord);
         Button searchButton = view.findViewById(R.id.searchButton);
         searchButton.setOnClickListener(new View.OnClickListener(){
@@ -97,7 +95,7 @@ public class StoreSearchFragment extends Fragment {
                 searchWord = searchWordText.getText().toString();
                 Log.d(TAG, "search button clicked. searchWord : "+ searchWord);
                 requestSearchApi(searchWord);
-                setupRecyclerViewContents();
+
 
             }
         });
@@ -107,15 +105,50 @@ public class StoreSearchFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
 
 
+        //recyclerView 아이템 터치 리스터. recycler view 중 가게를 하나 선택하면 다음 프래그먼트로 이동
+        mRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getActivity(), mRecyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+
+                        //선택한 아이템뷰 확인 및 데이터 전달
+                        int itemPosition = mRecyclerView.getChildLayoutPosition(view);
+                        Log.d(TAG, "item clicked : " + storeInfoArrayList.get(itemPosition).title);
+                        Log.d(TAG, "move to Last Share Fragment");
+
+                        //선택시 색깔 변하도록
+                        view.setBackgroundColor(0x000000);
+
+                        //선택한 가게 정보 데이터를 bundle에 넣고 다음 프래그먼트로 이동
+                        setFragmentAndMove(itemPosition)              ;
+
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
+
+
         return view;
     }
 
-    private void setupRecyclerViewContents() {
-        RecyclerviewAdapterForShare myAdapter = new RecyclerviewAdapterForShare(getActivity(), storeInfoArrayList);
-        mRecyclerView.setAdapter(myAdapter);
+    //선택한 가게 정보 데이터를 bundle에 넣고 다음 프래그먼트로 이동
+    private void setFragmentAndMove(int itemPosition) {
+        Log.d(TAG, "put data in Fragment");
+        LastShareFragment fragment = new LastShareFragment();
+        Bundle args = new Bundle();
+        args.putParcelable("StoreData", storeInfoArrayList.get(itemPosition));
+        fragment.setArguments(args);
+
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.relLayout1, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
 
+    //네이버 api 검색 실행. 성공하면 정보 받아서 리사이클러뷰 어댑터로 넘긴다.
     private void requestSearchApi(String searchWord){
 
         retrofit = new Retrofit.Builder()
@@ -128,9 +161,9 @@ public class StoreSearchFragment extends Fragment {
         request.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.d(TAG, "request enqueue is Successed : " + response.toString());
-                Log.d(TAG, "request enqueue is Successed : " + response.body().toString());
-                storeInfoArrayList = parseJsonToStoreInfo(response.body());
+                Log.d(TAG, "request enqueue is Successed  ");
+                storeInfoArrayList  = parseJsonToStoreInfo(response.body());
+                setRecyclerviewAdapter(storeInfoArrayList);
             }
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
@@ -142,6 +175,7 @@ public class StoreSearchFragment extends Fragment {
 
     }
 
+    //naver api에서 받아온 jsonObject를 파싱해서 ArrayList<>로 변경
     private ArrayList<NaverStoreInfo> parseJsonToStoreInfo(JsonObject jsonObject) {
         ArrayList<NaverStoreInfo> dataList = new ArrayList<>();
         Gson gson = new Gson();
@@ -150,9 +184,14 @@ public class StoreSearchFragment extends Fragment {
         for(int i=0 ; i<jsonArray.size(); i++){
             NaverStoreInfo object = gson.fromJson(jsonArray.get(i), NaverStoreInfo.class);
             dataList.add(object);
-            Log.d(TAG, "object.title : " + object.title);
         }
         return dataList;
 
+    }
+
+    //recycler view를 네이버 api에서 가져온 리스트와 함께 어댑터 세팅
+    private void setRecyclerviewAdapter(ArrayList<NaverStoreInfo> storeInfoArrayList) {
+        RecyclerviewAdapterForShare myAdapter = new RecyclerviewAdapterForShare(getActivity(), storeInfoArrayList);
+        mRecyclerView.setAdapter(myAdapter);
     }
 }

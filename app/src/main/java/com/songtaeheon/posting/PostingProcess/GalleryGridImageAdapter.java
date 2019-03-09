@@ -1,4 +1,4 @@
-package com.songtaeheon.posting.Utils;
+package com.songtaeheon.posting.PostingProcess;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -19,7 +19,7 @@ import com.songtaeheon.posting.R;
 
 import java.util.ArrayList;
 
-public class GridImageAdapterForGallery extends BaseAdapter {
+public class GalleryGridImageAdapter extends BaseAdapter {
 
     Context mContext;
     LayoutInflater mInflater;
@@ -27,7 +27,7 @@ public class GridImageAdapterForGallery extends BaseAdapter {
     String mAppend;
     ArrayList<String> imgURLs;
 
-    public GridImageAdapterForGallery(Context context, int layoutResource, String append, ArrayList<String> imgURLs) {
+    public GalleryGridImageAdapter(Context context, int layoutResource, String append, ArrayList<String> imgURLs) {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mContext = context;
         this.layoutResource = layoutResource;

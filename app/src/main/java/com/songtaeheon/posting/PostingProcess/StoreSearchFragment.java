@@ -1,4 +1,4 @@
-package com.songtaeheon.posting;
+package com.songtaeheon.posting.PostingProcess;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,9 +19,9 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.songtaeheon.posting.DataModel.NaverStoreInfo;
-import com.songtaeheon.posting.DataModel.StoreInfo;
+import com.songtaeheon.posting.R;
+import com.songtaeheon.posting.Utils.NaverApiSearchService;
 import com.songtaeheon.posting.Utils.RecyclerItemClickListener;
-import com.songtaeheon.posting.Utils.RecyclerviewAdapterForShare;
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.songtaeheon.posting.SearchService.API_URL;
+import static com.songtaeheon.posting.Utils.NaverApiSearchService.API_URL;
 
 
 public class StoreSearchFragment extends Fragment {
@@ -40,7 +40,7 @@ public class StoreSearchFragment extends Fragment {
     private final String naverApiSecret = "rb2Or79uka";
 
     Retrofit retrofit;
-    SearchService service;
+    NaverApiSearchService service;
 
     EditText searchWordText;
     String searchWord;
@@ -157,7 +157,7 @@ public class StoreSearchFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        service = retrofit.create(SearchService.class);
+        service = retrofit.create(NaverApiSearchService.class);
         Call<JsonObject> request = service.getUserRepositories(naverApiId, naverApiSecret, searchWord);
         request.enqueue(new Callback<JsonObject>() {
             @Override
@@ -192,7 +192,7 @@ public class StoreSearchFragment extends Fragment {
 
     //recycler view를 네이버 api에서 가져온 리스트와 함께 어댑터 세팅
     private void setRecyclerviewAdapter(ArrayList<NaverStoreInfo> storeInfoArrayList) {
-        RecyclerviewAdapterForShare myAdapter = new RecyclerviewAdapterForShare(getActivity(), storeInfoArrayList);
+        StoreSearchRecyclerViewAdapter myAdapter = new StoreSearchRecyclerViewAdapter(getActivity(), storeInfoArrayList);
         mRecyclerView.setAdapter(myAdapter);
     }
 }

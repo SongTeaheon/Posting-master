@@ -1,4 +1,4 @@
-package com.songtaeheon.posting;
+package com.songtaeheon.posting.Utils;
 
 
 import com.google.gson.JsonObject;
@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Query;
 
-public interface SearchService {
+public interface NaverApiSearchService {
 
     public static final String API_URL = "https://openapi.naver.com/v1/search/";
 

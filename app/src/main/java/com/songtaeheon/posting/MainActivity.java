@@ -1,7 +1,5 @@
 package com.songtaeheon.posting;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +14,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.songtaeheon.posting.DataModel.UserInfo;
 
 public class MainActivity extends AppCompatActivity {
@@ -70,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         buttonToShare.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "ButtonToShare is clicked : move to ShareActivity");
+                Log.d(TAG, "ButtonToShare is clicked : move to MainShareActivity");
                 moveToShareActivity();
             }
         });
@@ -132,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void moveToShareActivity(){
-        Intent intent = new Intent(this, ShareActivity.class);
+        Intent intent = new Intent(this, MainShareActivity.class);
         startActivity(intent);
     }
 

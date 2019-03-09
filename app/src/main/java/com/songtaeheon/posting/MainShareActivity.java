@@ -1,19 +1,16 @@
 package com.songtaeheon.posting;
 
-import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.songtaeheon.posting.DataModel.PostingInfo;
+import com.songtaeheon.posting.PostingProcess.GalleryFragment;
 import com.songtaeheon.posting.Utils.Permissions;
 
-import static com.songtaeheon.posting.MainActivity.currentUser;
-
-public class ShareActivity extends AppCompatActivity {
+public class MainShareActivity extends AppCompatActivity {
 
     private static final String TAG = "TAGShareActivity";
     private static final int VERIFY_PERMISSIONS_REQUEST = 1;
@@ -44,7 +41,7 @@ public class ShareActivity extends AppCompatActivity {
 
     public void verifyPermissions(String[] permissions){
         Log.d(TAG, "verifyPermissions : verify permissions");
-        ActivityCompat.requestPermissions(ShareActivity.this, permissions, VERIFY_PERMISSIONS_REQUEST);
+        ActivityCompat.requestPermissions(MainShareActivity.this, permissions, VERIFY_PERMISSIONS_REQUEST);
 
     }
     //check an array of permissions
@@ -64,7 +61,7 @@ public class ShareActivity extends AppCompatActivity {
     public boolean checkPermission(String permission){
         Log.d(TAG, "checkPermissionArray : "+ permission);
 
-        int permissionRequest = ActivityCompat.checkSelfPermission(ShareActivity.this, permission);
+        int permissionRequest = ActivityCompat.checkSelfPermission(MainShareActivity.this, permission);
 
         if(permissionRequest != PackageManager.PERMISSION_GRANTED){
             Log.d(TAG, "checkPermissionArray : \n permission is not granted for"+ permission);

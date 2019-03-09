@@ -1,4 +1,4 @@
-package com.songtaeheon.posting;
+package com.songtaeheon.posting.PostingProcess;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,9 +15,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.songtaeheon.posting.R;
 import com.songtaeheon.posting.Utils.FilePaths;
 import com.songtaeheon.posting.Utils.FileSearch;
-import com.songtaeheon.posting.Utils.GridImageAdapterForGallery;
 
 import java.util.ArrayList;
 
@@ -120,7 +120,7 @@ public class GalleryFragment extends Fragment {
 
 
         //use the grid adapter to adapter the images to gridView
-        GridImageAdapterForGallery adapter = new GridImageAdapterForGallery(getActivity(), R.layout.layout_grid_imageview, mAppend, imgURLs);
+        GalleryGridImageAdapter adapter = new GalleryGridImageAdapter(getActivity(), R.layout.layout_grid_imageview, mAppend, imgURLs);
         gridView.setAdapter(adapter);
 
 

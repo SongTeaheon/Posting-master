@@ -1,23 +1,19 @@
-package com.songtaeheon.posting.Utils;
+package com.songtaeheon.posting.PostingProcess;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.songtaeheon.posting.DataModel.NaverStoreInfo;
-import com.songtaeheon.posting.LastShareFragment;
 import com.songtaeheon.posting.R;
 
 import java.util.ArrayList;
 
-public class RecyclerviewAdapterForShare extends RecyclerView.Adapter<RecyclerviewAdapterForShare.ViewHolder> {
+public class StoreSearchRecyclerViewAdapter extends RecyclerView.Adapter<StoreSearchRecyclerViewAdapter.ViewHolder> {
 
     private ArrayList<NaverStoreInfo> naverStoreInfoArray;
     private LayoutInflater mInflater;
@@ -25,7 +21,7 @@ public class RecyclerviewAdapterForShare extends RecyclerView.Adapter<Recyclervi
     private Context mContext;
 
 
-    public RecyclerviewAdapterForShare( Context context, ArrayList<NaverStoreInfo> naverStoreInfoArray) {
+    public StoreSearchRecyclerViewAdapter(Context context, ArrayList<NaverStoreInfo> naverStoreInfoArray) {
         this.naverStoreInfoArray = naverStoreInfoArray;
         this.mInflater = LayoutInflater.from(context);
         this.mContext = context;
@@ -45,15 +41,15 @@ public class RecyclerviewAdapterForShare extends RecyclerView.Adapter<Recyclervi
 
 
     @Override
-    public RecyclerviewAdapterForShare.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                                     int viewType) {
+    public StoreSearchRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                                        int viewType) {
         View view = mInflater.inflate(R.layout.recyclerview_store_search_row, parent, false);
         return new ViewHolder(view);
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerviewAdapterForShare.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull StoreSearchRecyclerViewAdapter.ViewHolder viewHolder, int i) {
         TextView tv_title;
         TextView tv_category;
         TextView tv_address;

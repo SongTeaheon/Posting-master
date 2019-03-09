@@ -1,4 +1,4 @@
-package com.songtaeheon.posting;
+package com.songtaeheon.posting.PostingProcess;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,7 +23,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
-import com.google.firebase.database.ServerValue;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -31,11 +30,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.songtaeheon.posting.DataModel.NaverStoreInfo;
 import com.songtaeheon.posting.DataModel.PostingInfo;
+import com.songtaeheon.posting.R;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static com.songtaeheon.posting.MainActivity.currentUser;
 

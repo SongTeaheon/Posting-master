@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
 
         android:layout_below="@id/relLayout1"
-        tools:context=".StoreSearchFragment">
+        tools:context=".PostingProcess.StoreSearchFragment">
 
         <!-- TODO: Update blank fragment layout -->
 

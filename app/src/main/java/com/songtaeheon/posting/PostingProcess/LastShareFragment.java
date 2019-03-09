@@ -95,18 +95,7 @@ public class LastShareFragment extends Fragment {
         storage = FirebaseStorage.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        //editText선택시 스크롤되도록
-        sv = view.findViewById(R.id.scrollView);
-        relLay = view.findViewById(R.id.relLayoutInScroll);
-        text_description.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus) {
-                    sv.smoothScrollTo(0, relLay.getHeight());
 
-                }
-            }
-        });
 
         //back 버튼
         ImageView backButton = view.findViewById(R.id.backButton);

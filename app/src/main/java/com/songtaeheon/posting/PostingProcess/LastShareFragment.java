@@ -30,6 +30,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.songtaeheon.posting.DataModel.NaverStoreInfo;
 import com.songtaeheon.posting.DataModel.PostingInfo;
+import com.songtaeheon.posting.DataModel.StoreInfo;
 import com.songtaeheon.posting.R;
 
 import java.io.File;
@@ -51,6 +52,7 @@ public class LastShareFragment extends Fragment {
     TextView mStarText3;
     TextView mStarText4;
     EditText text_description;
+    EditText text_title;
     ScrollView sv;
     RelativeLayout relLay;
     List<Float> detail_aver_star;
@@ -78,7 +80,8 @@ public class LastShareFragment extends Fragment {
         View view =inflater.inflate(R.layout.fragment_last_share, container, false);
         Log.d(TAG, "onCreateView!");
 
-        text_description = view.findViewById(R.id.editText);
+        text_description = view.findViewById(R.id.editTextDescription);
+        text_title = view.findViewById(R.id.editTextTitle);
         mRatingBar1 = view.findViewById(R.id.ratingBar1);
         mRatingBar2 = view.findViewById(R.id.ratingBar2);
         mRatingBar3 = view.findViewById(R.id.ratingBar3);
@@ -242,11 +245,21 @@ public class LastShareFragment extends Fragment {
         });
     }
     private void setAndSendPosting(String imagePathInStorage) {
-        //set the data!!
-        PostingInfo postingInfo = new PostingInfo();
+        /*
+        * 함수 구조
+        * 1. set the Posting data into postingInfo
+        * 2. set the Store Data into storeInfo
+        * 3. check the data in log cat
+        * 4. add store info and posting info in dataBase!!!!
+         * */
+
+
+        //1. set the Posting data!!
+        final PostingInfo postingInfo = new PostingInfo();
         postingInfo.writerId = currentUser.eMail;
         postingInfo.postingTime = Timestamp.now();
         postingInfo.description = text_description.getText().toString();
+        postingInfo.title = text_title.getText().toString();
         detail_aver_star.add(mRatingBar1.getRating());//맛
         detail_aver_star.add(mRatingBar2.getRating());//가성비
         detail_aver_star.add(mRatingBar3.getRating());//서비스
@@ -264,6 +277,10 @@ public class LastShareFragment extends Fragment {
         postingInfo.aver_star = sum/detail_aver_star.size();
         postingInfo.imagePathInStorage = imagePathInStorage;
 
+        //2. set the Store data!!
+        StoreInfo storeInfo = new StoreInfo(naverStoreInfo.title, 0, naverStoreInfo.address, detail_aver_star, naverStoreInfo.mapx, naverStoreInfo.mapy);
+
+        //3. log cat에서 확인하기 위한 코드
         Log.d(TAG, "postingInfo - \n " +
                 "imagePathInStorage : " + postingInfo.imagePathInStorage +"\n"+
                 "postingTime : " + postingInfo.postingTime +"\n" +
@@ -274,12 +291,17 @@ public class LastShareFragment extends Fragment {
             Log.d(TAG, "detail_aver_star ["+ i +"] : " + detail_aver_star.get(i));
         }
 
-        //add dataBase!!!!
-        db.collection("post").add(postingInfo)
+
+
+        //4. add store info and posting info in dataBase!!!!
+        db.collection("store").add(storeInfo)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                        db.collection("store").document(documentReference.getId())
+                                .collection("post").add(postingInfo);
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -288,6 +310,7 @@ public class LastShareFragment extends Fragment {
                         Log.w(TAG, "Error adding document", e);
                     }
                 });
+
 
     }
 }

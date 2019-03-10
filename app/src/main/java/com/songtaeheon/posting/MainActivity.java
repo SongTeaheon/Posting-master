@@ -16,6 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.songtaeheon.posting.DataModel.UserInfo;
 
+
+//test
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "TAGMainActivity";

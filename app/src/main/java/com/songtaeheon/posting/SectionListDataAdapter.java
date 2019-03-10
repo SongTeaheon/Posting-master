@@ -63,6 +63,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
             this.imageView = (ImageView) view.findViewById(R.id.imagefood);
 
 
+            //이미지 선택시 반응
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

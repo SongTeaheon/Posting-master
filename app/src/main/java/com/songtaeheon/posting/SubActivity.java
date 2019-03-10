@@ -24,13 +24,9 @@ public class SubActivity extends AppCompatActivity {
         createDummyData();
 
         RecyclerView my_recycler_view = (RecyclerView) findViewById(R.id.mrecyclerView);
-
         my_recycler_view.setHasFixedSize(true);
-
         RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(this, allSampleData);
-
         my_recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
         my_recycler_view.setAdapter(adapter);
 
     }

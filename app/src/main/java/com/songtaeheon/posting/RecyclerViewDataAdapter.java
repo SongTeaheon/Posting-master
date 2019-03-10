@@ -35,10 +35,13 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
     public void onBindViewHolder(ItemRowHolder itemRowHolder, int i) {
 
         final String sectionName = list.get(i).getName();
+        final float sectionStar = list.get(i).aver_star;
 
         ArrayList singleSectionItems = list.get(i).getAllItemsInSection();
 
+        //텍스트 세팅 부분
         itemRowHolder.storeName.setText(sectionName);
+        itemRowHolder.storeStar.setText(Float.toString(sectionStar));
 
         SectionListDataAdapter itemListDataAdapter = new SectionListDataAdapter(mContext, singleSectionItems);
 
@@ -46,7 +49,7 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
         itemRowHolder.recycler_view_list.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
         itemRowHolder.recycler_view_list.setAdapter(itemListDataAdapter);
 
-
+        //가게 정보 부분 선택 리스너!!
         itemRowHolder.touchStore.setOnClickListener(new View.OnClickListener() { // 각 가게별 상단 바를 터치 했을 때 이벤트 설정
             @Override
             public void onClick(View v) {
@@ -74,6 +77,7 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
 
 
 
+        //세로부분 리사이클러 뷰 적용!
         public ItemRowHolder(View view) {
             super(view);
 

@@ -6,6 +6,7 @@ public class UserInfo {
     public String password;
     public String profileImage;
     public int totalLike;
+    //망할 깃헙 테스트
 
     public UserInfo(String eMail, String nickName, String password, String profileImage, int totalLike) {
         this.eMail = eMail;

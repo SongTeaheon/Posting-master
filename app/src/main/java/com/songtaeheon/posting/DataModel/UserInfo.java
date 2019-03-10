@@ -6,7 +6,6 @@ public class UserInfo {
     public String password;
     public String profileImage;
     public int totalLike;
-//    public int test;
 
     public UserInfo(String eMail, String nickName, String password, String profileImage, int totalLike) {
         this.eMail = eMail;

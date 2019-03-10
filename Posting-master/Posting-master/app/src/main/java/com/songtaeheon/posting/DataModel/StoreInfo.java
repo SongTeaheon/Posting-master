@@ -4,25 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StoreInfo {
+
     public String name;
     public float aver_star;
     public String address;
-    public float[] detail_aver_star = {0,0,0,0};
+    public List<Float> detail_aver_star;
+    public int coordinates_x;
+    public int coordinates_y;
     private ArrayList<PostingInfo> allItemsInSection;
 
     public StoreInfo() {
 
     }
-
     public StoreInfo(String name,
                      float aver_star,
                      String address,
-                     float[] detail_aver_star) {
+                     List<Float> detail_aver_star,
+                     int coordinates_x,
+                     int coordinates_y) {
         this.name = name;
         this.aver_star = aver_star;
         this.address = address;
         this.detail_aver_star = detail_aver_star;
+        this.coordinates_x = coordinates_x;
+        this.coordinates_y = coordinates_y;
     }
+
+
 
     public String getName() {
         return name;

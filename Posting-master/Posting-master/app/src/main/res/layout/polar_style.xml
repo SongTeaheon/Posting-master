@@ -24,7 +24,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="10dp"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/dalbang" />
+                android:background="@drawable/dalbang" />
 
             <TextView
                 android:id="@+id/textmain"

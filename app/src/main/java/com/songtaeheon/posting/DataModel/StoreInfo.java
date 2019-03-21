@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StoreInfo {
-
     public String name;
     public float aver_star;
     public String address;
@@ -16,6 +15,7 @@ public class StoreInfo {
     public StoreInfo() {
 
     }
+
     public StoreInfo(String name,
                      float aver_star,
                      String address,

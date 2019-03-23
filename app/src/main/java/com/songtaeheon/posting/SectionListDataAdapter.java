@@ -61,7 +61,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
         PostingInfo singleItem = list.get(i);
 
-        holder.mainView.setText(singleItem.getStoreName());
+        holder.mainView.setText(singleItem.getTitle());
 
         Log.d(TAG, "downloadImageFromFirebaseStorage");
 

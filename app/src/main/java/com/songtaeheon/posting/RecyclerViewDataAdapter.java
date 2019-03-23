@@ -14,7 +14,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.songtaeheon.posting.DataModel.PostingInfo;
@@ -116,6 +118,7 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
 
     private void getStoreDataFromCloud() {
         Log.d(TAG, "getDataFromFirestore");
+
         db.collection("store")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -143,6 +146,8 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
 
         Log.d(TAG, "getDataFromFirestore");
         db.collection("store").document(postId).collection("post")
+                .orderBy("postingTime", Query.Direction.DESCENDING)
+                .limit(12)//최대 12개만 가져오도록
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

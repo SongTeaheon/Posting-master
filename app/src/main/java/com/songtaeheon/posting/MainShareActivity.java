@@ -23,10 +23,10 @@ public class MainShareActivity extends AppCompatActivity {
         setContentView(R.layout.activity_share);
 
         //permission check(camera, read and write external storage)
-        if(checkPermissionArray(Permissions.PERMISSIONS)){
+        if(checkPermissionArray(Permissions.POST_PERMISSIONS)){
             setupFragment();
         }else{
-            verifyPermissions(Permissions.PERMISSIONS);
+            verifyPermissions(Permissions.POST_PERMISSIONS);
         }
     }
 

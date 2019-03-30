@@ -63,11 +63,11 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
         holder.mainView.setText(singleItem.getTitle());
 
-        Log.d(TAG, "downloadImageFromFirebaseStorage");
+        Log.d(TAG, "downloadImageFromFirebaseStorage : " + singleItem.imagePathInStorage);
 
 
         StorageReference fileReference = storage.getReferenceFromUrl(singleItem.imagePathInStorage);
-        GlideApp.with(mContext).load(fileReference).centerCrop().into(holder.imageView);
+        GlideApp.with(mContext).load(fileReference).into(holder.imageView);
 
        /* Glide.with(mContext)
                 .load(feedItem.getImageURL())

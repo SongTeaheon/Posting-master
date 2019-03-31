@@ -5,6 +5,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.songtaeheon.posting.DataModel.PostingInfo;
 import com.songtaeheon.posting.PostingProcess.GalleryFragment;
@@ -13,7 +14,7 @@ import com.songtaeheon.posting.Utils.Permissions;
 public class MainShareActivity extends AppCompatActivity {
 
     private static final String TAG = "TAGShareActivity";
-    private static final int VERIFY_PERMISSIONS_REQUEST = 1;
+    private static final int VERIFY_PERMISSIONS_REQUEST = 10001;
 
     public PostingInfo postingInfo;
 
@@ -23,10 +24,10 @@ public class MainShareActivity extends AppCompatActivity {
         setContentView(R.layout.activity_share);
 
         //permission check(camera, read and write external storage)
-        if(checkPermissionArray(Permissions.PERMISSIONS)){
+        if(checkPermissionArray(Permissions.POST_PERMISSIONS)){
             setupFragment();
         }else{
-            verifyPermissions(Permissions.PERMISSIONS);
+            verifyPermissions(Permissions.POST_PERMISSIONS);
         }
     }
 
@@ -72,5 +73,28 @@ public class MainShareActivity extends AppCompatActivity {
         return true;
 
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case VERIFY_PERMISSIONS_REQUEST: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    setupFragment();
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(), "no permission. cannot post", Toast.LENGTH_LONG).show();
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
     }
 }

@@ -81,9 +81,9 @@ public class GalleryFragment extends Fragment {
     //spinner Setting
     private void init(){
         //check for other folders inside "/storage/emulated/0/pictures
-        if(FileSearch.getDirectoryPaths(FilePaths.PICTURES) != null){
-            directories = FileSearch.getDirectoryPaths(FilePaths.PICTURES);
-
+        if(FileSearch.getDirectoryPaths(FilePaths.PICTURES) != null || FileSearch.getDirectoryPaths(FilePaths.DCIM) != null){
+            directories = FileSearch.getDirectoryPaths(FilePaths.DCIM);
+            directories.addAll(FileSearch.getDirectoryPaths(FilePaths.PICTURES));
         }else{
             return;
         }

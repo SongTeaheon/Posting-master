@@ -25,6 +25,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -36,6 +38,7 @@ import com.songtaeheon.posting.R;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static com.songtaeheon.posting.MainActivity.currentUser;
 
@@ -274,11 +277,18 @@ public class LastShareFragment extends Fragment {
         for(int i=0 ; i<detail_aver_star.size(); i++ ) {
             sum += detail_aver_star.get(i);
         }
-        postingInfo.aver_star = sum/detail_aver_star.size();
+
+        float aver_star = sum/detail_aver_star.size();
+        postingInfo.aver_star = aver_star;
         postingInfo.imagePathInStorage = imagePathInStorage;
 
+        //2. 해당 가게 정보가 이미 올라와있으면 받아온다. 없으면 새로 넣는다.
+
         //2. set the Store data!!
-        StoreInfo storeInfo = new StoreInfo(naverStoreInfo.title, 0, naverStoreInfo.address, detail_aver_star, naverStoreInfo.mapx, naverStoreInfo.mapy);
+        StoreInfo storeInfo = new StoreInfo(naverStoreInfo.title, aver_star, naverStoreInfo.address, detail_aver_star, naverStoreInfo.mapx, naverStoreInfo.mapy);
+
+        getAndSendData(storeInfo, postingInfo);
+
 
         //3. log cat에서 확인하기 위한 코드
         Log.d(TAG, "postingInfo - \n " +
@@ -291,14 +301,65 @@ public class LastShareFragment extends Fragment {
             Log.d(TAG, "detail_aver_star ["+ i +"] : " + detail_aver_star.get(i));
         }
 
+    }
+
+    private void getAndSendData(final StoreInfo storeInfo, final PostingInfo postingInfo) {
+
+        Log.d(TAG, "getStoreDataFromFirestore. storeName : " + storeInfo.name +", address :  " + storeInfo.address);
+
+        db.collection("store")
+                .whereEqualTo("name", postingInfo.storeName)
+                .whereEqualTo("address", storeInfo.address)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+
+                            //조건에 해당하는게 없는지 확인. 없으면 새로 넣어준다.
+
+                            if(task.getResult().isEmpty()) {
+                                Log.d(TAG, "task.getResult : " + task.getResult().isEmpty());
+                                putNewStoreInfo(storeInfo, postingInfo);
+                            }
 
 
-        //4. add store info and posting info in dataBase!!!!
+                            //있으면 업데이트 해준다.
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, "get document!! : " + document.getId() + " => " + document.getData());
+                                Map<String, Object> storeInfo = document.getData();
+                                //postingInfo에 따라 별점 데이터를 바꾸어 준다.
+                                storeInfo = changeStarInfo(storeInfo, postingInfo, document.getId());
+
+                                //해당 도큐먼트의 내용을 바뀐 별점 내용으로 바꾸어주고, collection에 postingInfo를 넣어준다.
+                                updatesFirestore(storeInfo, document.getId(), postingInfo);
+                            }
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+
+
+
+    }
+
+    //postingInfo의 별점을 storeInfo에 넣어준다.
+    //평점 바꾸어주는 코드 필요
+    private Map<String,Object> changeStarInfo(Map<String,Object> storeInfo, PostingInfo postingInfo, String id) {
+
+        storeInfo.put("aver_star", postingInfo.aver_star);
+        return storeInfo;
+    }
+
+    //add new store info and posting info in dataBase!!!!
+    private void putNewStoreInfo(final StoreInfo storeInfo, final PostingInfo postingInfo) {
         db.collection("store").add(storeInfo)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
+                        //store collection document내부에 post컬렉션에 데이터를 넣는다.
                         db.collection("store").document(documentReference.getId())
                                 .collection("post").add(postingInfo);
 
@@ -310,7 +371,40 @@ public class LastShareFragment extends Fragment {
                         Log.w(TAG, "Error adding document", e);
                     }
                 });
+    }
 
+    //해당 도큐먼트의 내용을 바뀐 별점 내용으로 바꾸어주고, collection에 postingInfo를 넣어준다.
+    private void updatesFirestore(Map<String,Object> storeInfo, String id, PostingInfo postingInfo) {
+        db.collection("store").document(id)
+                .set(storeInfo)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+
+        //db에 데이터를 넣는 코드 필요
+        db.collection("store").document(id).collection("post")
+                .add(postingInfo)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "store컬렉션 내부 post컬렉션 내부 포스팅 ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding document", e);
+                    }
+                });
 
     }
 }

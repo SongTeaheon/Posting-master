@@ -59,7 +59,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     public void onBindViewHolder(SingleItemRowHolder holder, int i) {
         Log.d(TAG, "onBindViewHolder");
 
-        PostingInfo singleItem = list.get(i);
+        final PostingInfo singleItem = list.get(i);
 
         holder.mainView.setText(singleItem.getTitle());
 
@@ -68,6 +68,16 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
         StorageReference fileReference = storage.getReferenceFromUrl(singleItem.imagePathInStorage);
         GlideApp.with(mContext).load(fileReference).into(holder.imageView);
+
+        //태완태완 이미지 선택시 반응입니다. 여기가 그 각 포스팅1 글 누르면 발생하는 이벤트 부분입니다.
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //여기서 포스팅2로 넘어가면 됩니다.
+                Toast.makeText(v.getContext(), singleItem.title, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
        /* Glide.with(mContext)
                 .load(feedItem.getImageURL())
@@ -86,30 +96,23 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
         private ImageView imageView;
         private TextView mainView;
+        View view;
 
 
         public SingleItemRowHolder(View view) {
             super(view);
+            this.view = view;
             Log.d(TAG, "singleItemRowHolder");
-
             this.mainView = (TextView) view.findViewById(R.id.textmain);
             this.imageView = (ImageView) view.findViewById(R.id.imagefood);
 
-
-            //이미지 선택시 반응
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Toast.makeText(v.getContext(), mainView.getText(), Toast.LENGTH_SHORT).show();
-
-                }
-            });
 
 
         }
 
     }
+
+
 
 
 

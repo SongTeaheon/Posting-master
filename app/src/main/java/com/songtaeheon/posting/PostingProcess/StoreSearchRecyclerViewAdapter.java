@@ -8,21 +8,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.songtaeheon.posting.DataModel.NaverStoreInfo;
+import com.songtaeheon.posting.DataModel.KakaoStoreInfo;
 import com.songtaeheon.posting.R;
 
 import java.util.ArrayList;
 
 public class StoreSearchRecyclerViewAdapter extends RecyclerView.Adapter<StoreSearchRecyclerViewAdapter.ViewHolder> {
 
-    private ArrayList<NaverStoreInfo> naverStoreInfoArray;
+    private ArrayList<KakaoStoreInfo> kakaoStoreInfoArray;
     private LayoutInflater mInflater;
     private final String TAG = "TAGRecyclerviewAdapter";
     private Context mContext;
 
 
-    public StoreSearchRecyclerViewAdapter(Context context, ArrayList<NaverStoreInfo> naverStoreInfoArray) {
-        this.naverStoreInfoArray = naverStoreInfoArray;
+    public StoreSearchRecyclerViewAdapter(Context context, ArrayList<KakaoStoreInfo> kakaoStoreInfoArray) {
+        this.kakaoStoreInfoArray = kakaoStoreInfoArray;
         this.mInflater = LayoutInflater.from(context);
         this.mContext = context;
     }
@@ -58,15 +58,15 @@ public class StoreSearchRecyclerViewAdapter extends RecyclerView.Adapter<StoreSe
         tv_category = viewHolder.view.findViewById(R.id.tv_category);
         tv_address = viewHolder.view.findViewById(R.id.tv_address);
 
-        tv_title.setText(naverStoreInfoArray.get(i).title);
-        tv_category.setText(naverStoreInfoArray.get(i).category);
-        tv_address.setText(naverStoreInfoArray.get(i).address);
+        tv_title.setText(kakaoStoreInfoArray.get(i).place_name);
+        tv_category.setText(kakaoStoreInfoArray.get(i).category_group_name);
+        tv_address.setText(kakaoStoreInfoArray.get(i).address_name);
     }
 
 
 
     @Override
     public int getItemCount() {
-        return naverStoreInfoArray.size();
+        return kakaoStoreInfoArray.size();
     }
 }

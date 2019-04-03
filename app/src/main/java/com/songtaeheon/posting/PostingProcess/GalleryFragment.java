@@ -3,6 +3,7 @@ package com.songtaeheon.posting.PostingProcess;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -52,19 +53,22 @@ public class GalleryFragment extends Fragment {
         shareClose.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onclick : closing the gallery fragment");
-                getActivity().finish();
+                Log.d(TAG, "onclick : x버튼 눌림. storeSearch화면으로 이동");
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.popBackStackImmediate();
             }
         });
 
-        //next 버튼
+        // 태완태완 next 버튼 태완님 여기 건드리시면 됩니다. 여기서 이 nextScreen버튼 누르면 사진크롭화면으로 넘어가야합니당
+        //지금은 LastShareFragment로 넘어가고 있습니다.
+        //태완님 그 사진크롭 끝나면 LastShareFragment로 넘어가야합니다.
         TextView nextScreen = view.findViewById(R.id.tvNext);
         nextScreen.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onclick : navigating to the storeSearch screen");
+                Log.d(TAG, "onclick : navigating to the LastShareFragment(나중에는 사진크롭화면으로 바뀌어야함)");
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.relLayout1, new StoreSearchFragment());
+                ft.replace(R.id.relLayout1, new LastShareFragment());
                 ft.addToBackStack(null);
                 ft.commit();
 

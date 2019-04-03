@@ -18,9 +18,9 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.songtaeheon.posting.DataModel.NaverStoreInfo;
+import com.songtaeheon.posting.DataModel.KakaoStoreInfo;
 import com.songtaeheon.posting.R;
-import com.songtaeheon.posting.Utils.NaverApiSearchService;
+import com.songtaeheon.posting.Utils.KakaoApiSearchService;
 import com.songtaeheon.posting.Utils.RecyclerItemClickListener;
 
 import java.util.ArrayList;
@@ -31,22 +31,23 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.songtaeheon.posting.Utils.NaverApiSearchService.API_URL;
+import static com.songtaeheon.posting.Utils.KakaoApiSearchService.API_URL;
 
 
 public class StoreSearchFragment extends Fragment {
     private final String TAG = "TAGStoreResearchFrag";
-    private final String naverApiId = "B6m_wV3mDimRZaxT8fZe";
-    private final String naverApiSecret = "rb2Or79uka";
+    private final String kakaoApiId = "KakaoAK 952900bd9ca440b836d9c490525aef64";
+    private final String code = "FD6";
+
 
     Retrofit retrofit;
-    NaverApiSearchService service;
+    KakaoApiSearchService service;
 
     EditText searchWordText;
     String searchWord;
 
     RecyclerView mRecyclerView;
-    ArrayList<NaverStoreInfo> storeInfoArrayList;
+    ArrayList<KakaoStoreInfo> storeInfoArrayList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,10 +66,12 @@ public class StoreSearchFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onclick : closing the restaurantn research fragment, back to gallery fragment");
+                Log.d(TAG, "onclick : closing the restaurantn research fragment, finish Activity");
                 //back button 기능
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                fm.popBackStackImmediate();
+                getActivity().finish();
+
+               // FragmentManager fm = getActivity().getSupportFragmentManager();
+                //fm.popBackStackImmediate();
 
             }
         });
@@ -78,9 +81,9 @@ public class StoreSearchFragment extends Fragment {
         nextScreen.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onclick : navigating to the final share screen : 필요없어질 수도!");
+                Log.d(TAG, "onclick : navigating to gallery fragment : 필요없어질 수도!");
                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.relLayout1, new LastShareFragment());
+                ft.replace(R.id.relLayout1, new GalleryFragment());
                 ft.addToBackStack(null);
                 ft.commit();
             }
@@ -113,7 +116,7 @@ public class StoreSearchFragment extends Fragment {
 
                         //선택한 아이템뷰 확인 및 데이터 전달
                         int itemPosition = mRecyclerView.getChildLayoutPosition(view);
-                        Log.d(TAG, "item clicked : " + storeInfoArrayList.get(itemPosition).title);
+                        Log.d(TAG, "item clicked : " + storeInfoArrayList.get(itemPosition).place_name);
                         Log.d(TAG, "move to Last Share Fragment");
 
                         //선택시 색깔 변하도록
@@ -157,8 +160,8 @@ public class StoreSearchFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        service = retrofit.create(NaverApiSearchService.class);
-        Call<JsonObject> request = service.getUserRepositories(naverApiId, naverApiSecret, searchWord);
+        service = retrofit.create(KakaoApiSearchService.class);
+        Call<JsonObject> request = service.getUserRepositories(kakaoApiId, searchWord, code);
         request.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
@@ -176,14 +179,14 @@ public class StoreSearchFragment extends Fragment {
 
     }
 
-    //naver api에서 받아온 jsonObject를 파싱해서 ArrayList<>로 변경
-    private ArrayList<NaverStoreInfo> parseJsonToStoreInfo(JsonObject jsonObject) {
-        ArrayList<NaverStoreInfo> dataList = new ArrayList<>();
+    //kakao api에서 받아온 jsonObject를 파싱해서 ArrayList<>로 변경
+    private ArrayList<KakaoStoreInfo> parseJsonToStoreInfo(JsonObject jsonObject) {
+        ArrayList<KakaoStoreInfo> dataList = new ArrayList<>();
         Gson gson = new Gson();
 
-        JsonArray jsonArray = (JsonArray) jsonObject.get("items");
+        JsonArray jsonArray = (JsonArray) jsonObject.get("documents");
         for(int i=0 ; i<jsonArray.size(); i++){
-            NaverStoreInfo object = gson.fromJson(jsonArray.get(i), NaverStoreInfo.class);
+            KakaoStoreInfo object = gson.fromJson(jsonArray.get(i), KakaoStoreInfo.class);
             dataList.add(object);
         }
         return dataList;
@@ -191,7 +194,7 @@ public class StoreSearchFragment extends Fragment {
     }
 
     //recycler view를 네이버 api에서 가져온 리스트와 함께 어댑터 세팅
-    private void setRecyclerviewAdapter(ArrayList<NaverStoreInfo> storeInfoArrayList) {
+    private void setRecyclerviewAdapter(ArrayList<KakaoStoreInfo> storeInfoArrayList) {
         StoreSearchRecyclerViewAdapter myAdapter = new StoreSearchRecyclerViewAdapter(getActivity(), storeInfoArrayList);
         mRecyclerView.setAdapter(myAdapter);
     }

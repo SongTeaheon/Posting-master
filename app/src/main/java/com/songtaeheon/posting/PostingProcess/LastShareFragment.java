@@ -30,7 +30,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.songtaeheon.posting.DataModel.NaverStoreInfo;
+import com.songtaeheon.posting.DataModel.KakaoStoreInfo;
 import com.songtaeheon.posting.DataModel.PostingInfo;
 import com.songtaeheon.posting.DataModel.StoreInfo;
 import com.songtaeheon.posting.R;
@@ -61,7 +61,7 @@ public class LastShareFragment extends Fragment {
     List<Float> detail_aver_star;
 
 
-    NaverStoreInfo naverStoreInfo;
+    KakaoStoreInfo kakaoStoreInfo;
 
     FirebaseStorage storage;
     FirebaseFirestore db;
@@ -72,8 +72,8 @@ public class LastShareFragment extends Fragment {
         Log.d(TAG, "onCreate!");
         //Store Search Fragment에서 받은 bundle데이터(네이터 api 검색 결과 선택 항목)을 받는다.
         if (getArguments() != null) {
-            naverStoreInfo = getArguments().getParcelable("StoreData");
-            Log.d(TAG, "naverStoreInfo : " + naverStoreInfo.title);
+            kakaoStoreInfo = getArguments().getParcelable("StoreData");
+            Log.d(TAG, "kakaoStoreInfo : " + kakaoStoreInfo.place_name);
         }
     }
 
@@ -269,8 +269,8 @@ public class LastShareFragment extends Fragment {
         detail_aver_star.add(mRatingBar4.getRating());//분위기
         postingInfo.detail_aver_star = detail_aver_star;
 
-        postingInfo.storeName = naverStoreInfo.title;
-        postingInfo.address = naverStoreInfo.address;
+        postingInfo.storeName = kakaoStoreInfo.place_name;
+        postingInfo.address = kakaoStoreInfo.address_name;
 
 
         float sum =0 ;
@@ -285,7 +285,10 @@ public class LastShareFragment extends Fragment {
         //2. 해당 가게 정보가 이미 올라와있으면 받아온다. 없으면 새로 넣는다.
 
         //2. set the Store data!!
-        StoreInfo storeInfo = new StoreInfo(naverStoreInfo.title, aver_star, naverStoreInfo.address, detail_aver_star, naverStoreInfo.mapx, naverStoreInfo.mapy);
+        //String mapxStr = kakaoStoreInfo.x;
+        //String mapyStr = kakaoStoreInfo.y;
+
+        StoreInfo storeInfo = new StoreInfo(kakaoStoreInfo.place_name, aver_star, kakaoStoreInfo.address_name, detail_aver_star, (int)Float.parseFloat(kakaoStoreInfo.x), (int)Float.parseFloat(kakaoStoreInfo.y));
 
         getAndSendData(storeInfo, postingInfo);
 

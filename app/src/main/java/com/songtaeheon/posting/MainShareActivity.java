@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.songtaeheon.posting.DataModel.PostingInfo;
 import com.songtaeheon.posting.PostingProcess.GalleryFragment;
+import com.songtaeheon.posting.PostingProcess.StoreSearchFragment;
 import com.songtaeheon.posting.Utils.Permissions;
 
 public class MainShareActivity extends AppCompatActivity {
@@ -34,8 +35,8 @@ public class MainShareActivity extends AppCompatActivity {
     private void setupFragment(){
 
         Log.d(TAG, "setupFragment");
-        GalleryFragment galleryFragment = new GalleryFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.relLayout1, galleryFragment).commit();
+        StoreSearchFragment storeSearchFragment = new StoreSearchFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.relLayout1, storeSearchFragment).commit();
 
     }
 

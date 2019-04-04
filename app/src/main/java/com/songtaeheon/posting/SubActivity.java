@@ -2,6 +2,7 @@ package com.songtaeheon.posting;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.shapes.OvalShape;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,7 +10,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.design.widget.BottomSheetBehavior;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -32,6 +35,7 @@ public class SubActivity extends AppCompatActivity {
     RecyclerView my_recycler_view;
     private Location mCurrentLocation;
     private boolean mLocationPermissionGranted = false;
+    ImageView imageView;
 
 
     @Override
@@ -109,8 +113,6 @@ public class SubActivity extends AppCompatActivity {
             }
         }
     }
-
-
 
 
 

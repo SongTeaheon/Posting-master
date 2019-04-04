@@ -61,7 +61,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
         final PostingInfo singleItem = list.get(i);
 
-        holder.mainView.setText(singleItem.getTitle());
+        //holder.mainView.setText(singleItem.getTitle());
 
         Log.d(TAG, "downloadImageFromFirebaseStorage : " + singleItem.imagePathInStorage);
 
@@ -95,7 +95,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     public class SingleItemRowHolder extends RecyclerView.ViewHolder {
 
         private ImageView imageView;
-        private TextView mainView;
+        //private TextView mainView;
         View view;
 
 
@@ -103,7 +103,7 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
             super(view);
             this.view = view;
             Log.d(TAG, "singleItemRowHolder");
-            this.mainView = (TextView) view.findViewById(R.id.textmain);
+            //this.mainView = (TextView) view.findViewById(R.id.textmain);
             this.imageView = (ImageView) view.findViewById(R.id.imagefood);
 
 

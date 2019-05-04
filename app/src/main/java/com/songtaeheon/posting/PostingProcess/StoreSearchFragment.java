@@ -119,6 +119,12 @@ public class StoreSearchFragment extends Fragment {
                         Log.d(TAG, "item clicked : " + storeInfoArrayList.get(itemPosition).place_name);
                         Log.d(TAG, "move to Last Share Fragment");
 
+                        Log.d(TAG, "onclick : navigating to gallery fragment : 필요없어질 수도!");
+                        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                        ft.replace(R.id.relLayout1, new GalleryFragment());
+                        ft.addToBackStack(null);
+                        ft.commit();
+
                         //선택시 색깔 변하도록
                         view.setBackgroundColor(0x000000);
 
